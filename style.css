@@ -138,3 +138,13 @@ h2 { margin-bottom: 20px; color: var(--burgundy); font-size: clamp(35px, 4.5vw, 
   .skills-grid,.projects-grid { grid-template-columns: 1fr; }.skill-card { min-height: 190px; }.project-art { height: 150px; }.project-info p { min-height: 0; }
   .learning-row { grid-template-columns: 25px 1fr; }.learning-state { grid-column: 2; }.footer-inner { flex-wrap: wrap; }.footer-inner p { order: 3; flex-basis: 100%; }
 }
+/* Git practice: Adding a hover effect to project cards */
+
+.project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
