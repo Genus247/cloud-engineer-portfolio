@@ -148,3 +148,54 @@ h2 { margin-bottom: 20px; color: var(--burgundy); font-size: clamp(35px, 4.5vw, 
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
+/* Certifications Section */
+.certifications-section {
+    padding: 80px 0;
+}
+
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.certification-card {
+    background: #ffffff;
+    padding: 28px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certification-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.certification-status {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #b7791f;
+    margin-bottom: 16px;
+}
+
+.certification-card h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.certification-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #64748b;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .certifications-grid {
+        grid-template-columns: 1fr;
+    }
+}
