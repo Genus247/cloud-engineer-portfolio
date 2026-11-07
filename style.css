@@ -199,3 +199,11 @@ h2 { margin-bottom: 20px; color: var(--burgundy); font-size: clamp(35px, 4.5vw, 
         grid-template-columns: 1fr;
     }
 }
+/* Honeypot spam protection */
+.honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}

@@ -42,10 +42,11 @@ if (contactForm && formNote) {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
-                        name: name,
-                        email: email,
-                        message: message
-                    })
+    name: name,
+    email: email,
+    message: message,
+    website: document.getElementById("website").value
+})
                 }
             );
 
