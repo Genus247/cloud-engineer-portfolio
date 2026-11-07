@@ -24,9 +24,43 @@ const contactForm = document.getElementById("contactForm");
 const formNote = document.getElementById("formNote");
 
 if (contactForm && formNote) {
-  contactForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    formNote.textContent = "Thanks! This is a design preview. We'll connect the form to API Gateway and AWS Lambda in a later stage.";
-    contactForm.reset();
-  });
+    contactForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        formNote.textContent = "Sending your message...";
+
+        try {
+            const response = await fetch(
+                "https://8jmgr4kz3l.execute-api.eu-west-2.amazonaws.com/contact",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        message: message
+                    })
+                }
+            );
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                throw new Error(result.message || "Message could not be sent.");
+            }
+
+            formNote.textContent = result.message || "Your message has been sent successfully!";
+            contactForm.reset();
+
+        } catch (error) {
+            console.error("Contact form error:", error);
+            formNote.textContent = "Sorry, something went wrong. Please try again.";
+        }
+    });
 }
